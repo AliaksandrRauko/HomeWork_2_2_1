@@ -27,27 +27,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.systemBlue
-        mainView.layer.cornerRadius = 30
-        mainView.backgroundColor = UIColor.gray
-        
-        firstColourLabel.text = "Red"
-        firstColourLabel.textColor = UIColor.white
-        secondColourLabel.text = "Green"
-        secondColourLabel.textColor = UIColor.white
-        thirdColourLabel.text = "Blue"
-        thirdColourLabel.textColor = UIColor.white
-
-        firstValueLabel.text = String(firstSlider.value)
-        firstValueLabel.textColor = UIColor.white
-        secondValueLabel.text = String(secondSlider.value)
-        secondValueLabel.textColor = UIColor.white
-        thirdValueLabel.text = String(thridSlider.value)
-        thirdValueLabel.textColor = UIColor.white
-        
-        firstSlider.tintColor = UIColor.red
-        secondSlider.tintColor = UIColor.green
-        thridSlider.tintColor = UIColor.blue
+        installGeneralSetting()
+        installColorLabel()
+        installValueLabel()
+        installSlider()
 
     }
 
@@ -73,8 +56,43 @@ class ViewController: UIViewController {
 }
 
 //MARK: -
+
 extension ViewController {
+    
+    private func installGeneralSetting() {
+        view.backgroundColor = UIColor.systemBlue
+        mainView.layer.cornerRadius = 30
+        mainView.backgroundColor = UIColor.gray
+    }
+    
+    private func installColorLabel() {
+        firstColourLabel.text = "Red"
+        firstColourLabel.textColor = UIColor.white
+        secondColourLabel.text = "Green"
+        secondColourLabel.textColor = UIColor.white
+        thirdColourLabel.text = "Blue"
+        thirdColourLabel.textColor = UIColor.white
+    }
+    
+    private func installValueLabel() {
+        firstValueLabel.text = String(firstSlider.value)
+        firstValueLabel.textColor = UIColor.white
+        secondValueLabel.text = String(secondSlider.value)
+        secondValueLabel.textColor = UIColor.white
+        thirdValueLabel.text = String(thridSlider.value)
+        thirdValueLabel.textColor = UIColor.white
+    }
+    
+    private func installSlider() {
+        firstSlider.tintColor = UIColor.red
+        secondSlider.tintColor = UIColor.green
+        thridSlider.tintColor = UIColor.blue
+    }
+    
     private  func changeColour(){
-        mainView.backgroundColor = UIColor(red: CGFloat(firstSlider.value), green: CGFloat(secondSlider.value), blue: CGFloat(thridSlider.value), alpha: 1)
+        mainView.backgroundColor = UIColor(red: CGFloat(firstSlider.value),
+                                           green: CGFloat(secondSlider.value),
+                                           blue: CGFloat(thridSlider.value),
+                                           alpha: 1)
     }
 }
