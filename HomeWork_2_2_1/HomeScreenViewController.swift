@@ -13,12 +13,6 @@ protocol SettingsViewControllerDelegate {
 
 class HomeScreenViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
         guard let navigationSettingVS = segue.destination as? SettingsViewController else { return }
@@ -31,5 +25,6 @@ class HomeScreenViewController: UIViewController {
 extension HomeScreenViewController: SettingsViewControllerDelegate {
     func setNewBackgroundColor(colorSettingScreen: UIColor) {
         view.backgroundColor = colorSettingScreen
+        //navigationItem.titleView?.alpha = 0.5
     }
 }

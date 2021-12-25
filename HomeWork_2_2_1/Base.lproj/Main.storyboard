@@ -154,26 +154,23 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="textFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Gcn-xr-4Ie"/>
-                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="rAq-vv-BBO"/>
+                                                    <action selector="textFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Ter-g4-3Oo"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="68Y-KL-Jwv">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="68Y-KL-Jwv">
                                                 <rect key="frame" x="0.0" y="46" width="50" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="textFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="3aX-gb-puh"/>
-                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3Er-6S-hvb"/>
+                                                    <action selector="textFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="eS3-UV-N6v"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SUT-ui-cYn">
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SUT-ui-cYn">
                                                 <rect key="frame" x="0.0" y="92" width="50" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="textFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="0Iy-P1-a2l"/>
-                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Wll-0R-1cl"/>
+                                                    <action selector="textFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="sgY-4M-xrO"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
