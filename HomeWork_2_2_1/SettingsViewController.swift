@@ -58,37 +58,6 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func textFieldAction(_ sender: UITextField) {
-        
-        switch sender.tag {
-        case 0:
-            guard let newValue = firstTextField.text else { return }
-            if !isStringAnDouble(for: newValue) {
-                showAlert(title: "Error",
-                          message: "Please, enter correct value",
-                          textField: firstTextField)
-                return
-            }
-        case 1:
-            guard let newValue = secondTextField.text else { return }
-            if !isStringAnDouble(for: newValue) {
-                showAlert(title: "Error",
-                          message: "Please, enter correct value",
-                          textField: secondTextField)
-                return
-            }
-        default:
-            guard let newValue = secondTextField.text else { return }
-            if !isStringAnDouble(for: newValue) {
-                showAlert(title: "Error",
-                          message: "Please, enter correct value",
-                          textField: thirdTextField)
-                return
-            }
-        }
-
-    }
-    
     @IBAction func doneButtonPressed() {
         delegate.setNewBackgroundColor(colorSettingScreen: mainView.backgroundColor
                                        ?? UIColor.white)
@@ -97,7 +66,7 @@ class SettingsViewController: UIViewController {
 }
 
 
-//MARK: - SET SCREEN SETTINGS
+//MARK: - PRIVATE
 extension SettingsViewController {
     private  func setColor() {
         mainView.backgroundColor = UIColor(red: CGFloat(firstSlider.value),
@@ -135,29 +104,86 @@ extension SettingsViewController {
     }
     
     private func isStringAnDouble(for strValue: String) -> Bool {
-         return Double(strValue) != nil
+        return strValue == ""
+        ? true
+        : Double(strValue) != nil
      }
 }
 
 
-//MARK: - SET PROTOKOL UITextFieldDelegate
+//MARK: - USE PROTOKOL UITextFieldDelegate
 extension SettingsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let newValue = textField.text else { return }
-        guard let numberValue = Float(newValue) else { return }
-        
+
         if textField == firstTextField {
-            firstSlider.value = numberValue
+            if !isStringAnDouble(for: newValue) {
+                showAlert(title: "Error",
+                          message: "Please enter correct value",
+                          textField: firstTextField)
+                firstSlider.value = 0
+                firstValueLabel.text = "0.00"
+                return
+            }
+            firstSlider.value = Float(newValue) ?? 0
             firstValueLabel.text = newValue
         } else if textField == secondTextField {
-            secondSlider.value = numberValue
+            if !isStringAnDouble(for: newValue) {
+                showAlert(title: "Error",
+                          message: "Please enter correct value",
+                          textField: secondTextField)
+                secondSlider.value = 0
+                secondValueLabel.text = "0.00"
+                return
+            }
+            secondSlider.value = Float(newValue) ?? 0
             secondValueLabel.text = newValue
         } else if textField == thirdTextField {
-            thridSlider.value = numberValue
+            if !isStringAnDouble(for: newValue) {
+                showAlert(title: "Error",
+                          message: "Please enter correct value",
+                          textField: thirdTextField)
+                thridSlider.value = 0
+                thirdValueLabel.text = "0.00"
+                return
+            }
+            thridSlider.value = Float(newValue) ?? 0
             thirdValueLabel.text = newValue
         }
         setColor()
     }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch string {
+        case "0","1","2","3","4","5","6","7","8","9":
+            return textField.text?.count ?? 0 > 3 ? false : true
+        case ".":
+            return textField.text?.components(separatedBy: ".").count ?? 0 > 1
+            ? false
+            : true
+        default:
+            //т.к. задание было с ALERT, то закомментируем, хотя можно просто запретить ввод ненужных символов
+            //return string.count == 0 ? true : false
+            return true
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == firstTextField {
+            secondTextField.becomeFirstResponder()
+        } else if textField == secondTextField {
+            thirdTextField.becomeFirstResponder()
+        } else {
+            firstTextField.becomeFirstResponder()
+        }
+        return true
+    }
+    
 }
 
 //MARK: - ALERT CONTROLLER

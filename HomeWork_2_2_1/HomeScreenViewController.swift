@@ -25,6 +25,5 @@ class HomeScreenViewController: UIViewController {
 extension HomeScreenViewController: SettingsViewControllerDelegate {
     func setNewBackgroundColor(colorSettingScreen: UIColor) {
         view.backgroundColor = colorSettingScreen
-        //navigationItem.titleView?.alpha = 0.5
     }
 }
