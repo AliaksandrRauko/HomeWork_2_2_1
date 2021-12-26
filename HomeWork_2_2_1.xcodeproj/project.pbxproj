@@ -39,6 +39,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EA231D027788DCD0023D45B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1E0221B22775DFC000E0774D /* HomeScreenViewController.swift */,
+				1EE955ED27633581001E7C1B /* SettingsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1EA231D127788DEF0023D45B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1EE955EF27633581001E7C1B /* Main.storyboard */,
+				1EE955F427633582001E7C1B /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		1EA231D227788E080023D45B /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				1EE955E927633581001E7C1B /* AppDelegate.swift */,
+				1EE955EB27633581001E7C1B /* SceneDelegate.swift */,
+				1EE955F727633582001E7C1B /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		1EA231D327788E2A0023D45B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1EE955F227633582001E7C1B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		1EE955DD27633581001E7C1B = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +94,10 @@
 		1EE955E827633581001E7C1B /* HomeWork_2_2_1 */ = {
 			isa = PBXGroup;
 			children = (
-				1EE955E927633581001E7C1B /* AppDelegate.swift */,
-				1EE955EB27633581001E7C1B /* SceneDelegate.swift */,
-				1E0221B22775DFC000E0774D /* HomeScreenViewController.swift */,
-				1EE955ED27633581001E7C1B /* SettingsViewController.swift */,
-				1EE955EF27633581001E7C1B /* Main.storyboard */,
-				1EE955F227633582001E7C1B /* Assets.xcassets */,
-				1EE955F427633582001E7C1B /* LaunchScreen.storyboard */,
-				1EE955F727633582001E7C1B /* Info.plist */,
+				1EA231D027788DCD0023D45B /* ViewControllers */,
+				1EA231D127788DEF0023D45B /* Storyboards */,
+				1EA231D227788E080023D45B /* SupportFiles */,
+				1EA231D327788E2A0023D45B /* Resources */,
 			);
 			path = HomeWork_2_2_1;
 			sourceTree = "<group>";
@@ -295,7 +327,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7HT3STQ75T;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HomeWork_2_2_1/Info.plist;
+				INFOPLIST_FILE = HomeWork_2_2_1/SupportFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -323,7 +355,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7HT3STQ75T;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HomeWork_2_2_1/Info.plist;
+				INFOPLIST_FILE = HomeWork_2_2_1/SupportFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
