@@ -40,9 +40,7 @@ class SettingsViewController: UIViewController {
         thirdTextField.delegate = self
         
         setValueSliderFromHomeScreeen(someColor: colorHomeScreen)
-        setValue(for: firstColorLabel)
-        setValue(for: secondColorLabel)
-        setValue(for: thirdColorLabel)
+        setValue(for: firstColorLabel, secondColorLabel, thirdColorLabel)
         setColor()
     }
 
@@ -102,12 +100,6 @@ extension SettingsViewController {
         secondSlider.value = Float(ciColor.green)
         thridSlider.value = Float(ciColor.blue)
     }
-    
-    private func isStringAnDouble(for strValue: String) -> Bool {
-        return strValue == ""
-        ? true
-        : Double(strValue) != nil
-     }
 }
 
 
@@ -115,42 +107,24 @@ extension SettingsViewController {
 extension SettingsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let newValue = textField.text else { return }
-
-        if textField == firstTextField {
-            if !isStringAnDouble(for: newValue) {
-                showAlert(title: "Error",
-                          message: "Please enter correct value",
-                          textField: firstTextField)
-                firstSlider.value = 0
-                firstValueLabel.text = "0.00"
-                return
+        
+        if let currentValue = Float(newValue) {
+            if textField == firstTextField {
+                firstSlider.value = currentValue
+                firstValueLabel.text = newValue
+            } else if textField == secondTextField {
+                secondSlider.value = currentValue
+                secondValueLabel.text = newValue
+            } else if textField == thirdTextField {
+                thridSlider.value = currentValue
+                thirdValueLabel.text = newValue
             }
-            firstSlider.value = Float(newValue) ?? 0
-            firstValueLabel.text = newValue
-        } else if textField == secondTextField {
-            if !isStringAnDouble(for: newValue) {
-                showAlert(title: "Error",
-                          message: "Please enter correct value",
-                          textField: secondTextField)
-                secondSlider.value = 0
-                secondValueLabel.text = "0.00"
-                return
-            }
-            secondSlider.value = Float(newValue) ?? 0
-            secondValueLabel.text = newValue
-        } else if textField == thirdTextField {
-            if !isStringAnDouble(for: newValue) {
-                showAlert(title: "Error",
-                          message: "Please enter correct value",
-                          textField: thirdTextField)
-                thridSlider.value = 0
-                thirdValueLabel.text = "0.00"
-                return
-            }
-            thridSlider.value = Float(newValue) ?? 0
-            thirdValueLabel.text = newValue
+            setColor()
+            return
         }
-        setColor()
+        showAlert(title: "Error",
+                  message: "Please enter correct value",
+                  textField: textField)
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
